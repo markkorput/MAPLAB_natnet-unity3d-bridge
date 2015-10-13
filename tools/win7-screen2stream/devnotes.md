@@ -6,8 +6,11 @@ Screen capture on windows:
 Send stream:
 
   @echo off
+  
   set /p HOST="Enter host or ipaddress: "
+  
   echo "Sending screen to %HOST%"
+  
   gst-launch-1.0.exe gdiscreencapsrc ! videoconvert ! video/x-raw,format=I420 ! jpegenc ! rtpjpegpay ! udpsink host=%HOST% port=5000
 
 
