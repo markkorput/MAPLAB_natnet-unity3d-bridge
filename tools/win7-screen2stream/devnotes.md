@@ -1,7 +1,7 @@
 
 Screen capture on windows:
-* Gstreamer
-* screen-capture-recorder https://github.com/rdp/screen-capture-recorder-to-video-windows-free
+* Gstreamer 1.0 (!)
+* screen-capture-recorder http://gstreamer.freedesktop.org/data/pkg/windows/1.0.10/
 
 Send stream:
 
