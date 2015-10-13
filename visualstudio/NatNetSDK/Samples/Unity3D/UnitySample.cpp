@@ -47,6 +47,7 @@ Usage [optional]:
 
 cSlipStream gSlipStream("127.0.0.1",16000);
 std::map<int, std::string> gBoneNames;
+std::map<int, std::string> gRigidBodyNames;
 
 #pragma warning( disable : 4996 )
 
@@ -150,6 +151,9 @@ int _tmain(int argc, _TCHAR* argv[])
                 printf("RigidBody ID : %d\n", pRB->ID);
                 printf("RigidBody Parent ID : %d\n", pRB->parentID);
                 printf("Parent Offset : %3.2f,%3.2f,%3.2f\n", pRB->offsetx, pRB->offsety, pRB->offsetz);
+
+				// popuate rigidbody name dict for use in xml ==--
+				gRigidBodyNames[pRB->ID] = pRB->szName;
 
 
             }
@@ -362,6 +366,7 @@ void SendFrameToUnity(sFrameOfMocapData *data, void *pUserData)
             rigidBodies->LinkEndChild( rb );  
 
             rb->SetAttribute      ("ID"  , rbData.ID);
+			rb->SetAttribute	  ("Name", gRigidBodyNames[LOWORD(rbData.ID)].c_str()); // gRigidBodyNames
             rb->SetDoubleAttribute("x"   , rbData.x);
             rb->SetDoubleAttribute("y"   , rbData.y);
             rb->SetDoubleAttribute("z"   , rbData.z);
