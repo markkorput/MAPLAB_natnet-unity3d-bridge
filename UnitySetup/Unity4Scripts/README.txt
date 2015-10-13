@@ -1,7 +1,7 @@
 
 A QUICK HOWTO
 
-*!!! USE A ETHERNET CABLE !!!*
+*!!! USE AN ETHERNET CABLE !!!*
 
 - NATNET-UNITY BRIDGE
 1. Start UnitySample.bat (just double click it)
